@@ -7,7 +7,7 @@ public class hw_1 {
 
     public static void main(String[] args) {
         int number = getNumberByUser("Введите n-ый элемент треугольного числа ");
-        System.out.println("Треугольное число = " + Decision(number) + "\n");
+        System.out.println(number + "-ый элемент треугольного числа = " + Decision(number) + "\n");
     }
 
     public static int getNumberByUser(String text) {
