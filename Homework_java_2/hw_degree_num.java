@@ -2,53 +2,42 @@ package Homework_java_2;
 
 import java.util.Scanner;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class hw_degree_num {
 
-    private static Scanner input = new Scanner(System.in);
-
     public static void main(String[] args) {
         String pathProject = System.getProperty("user.dir");
-        String pathFile = pathProject.concat("/Homework_java_2/input.txt");
-        // int[] dataFile = readDataFile(pathFile);
-        int[] dataFile = { 2, 3 };
-        System.out.println(dataFile[0]);
-        System.out.println(dataFile[1]);
+        String pathFileIn = pathProject.concat("/Homework_java_2/input.txt");
+        String pathFileOut = pathProject.concat("/Homework_java_2/output.txt");
+        int[] dataFile = readDataFile(pathFileIn);
         String result = calculatDegree(dataFile[0], dataFile[1]);
-        System.out.println(result);
-
-
+        writeDataFile(result, pathFileOut);
     }
 
     public static int[] readDataFile(String pathFile) {
         String msg = "";
         int[] arrAB = new int[2];
-
         try {
             File file = new File(pathFile);
             Scanner scan = new Scanner(file);
             String[] lineArray = new String[2];
             while (scan.hasNextLine()) {
                 msg = scan.nextLine();
-                System.out.println(msg);
                 lineArray = msg.split(" ");
-                System.out.println(lineArray[0]);
-                if (lineArray[0] == "a") {
-                    System.out.println("lineArray[1]");
+                if (lineArray[0].equals("a")) {
                     arrAB[0] = Integer.parseInt(lineArray[1]);
-                } else if (lineArray[0] == "b") {
+                } else if (lineArray[0].equals("b")) {
                     arrAB[1] = Integer.parseInt(lineArray[1]);
                 }
-
-                // System.out.println(msg);
             }
             scan.close();
             return arrAB;
         } catch (Exception e) {
-            System.out.println("reading error");
+            System.out.println(e.getMessage());
         }
         return null;
-
     }
 
     public static String calculatDegree(int a, int b) {
@@ -72,6 +61,12 @@ public class hw_degree_num {
         }
     }
 
-
-
+    public static void writeDataFile(String wrResult, String pathFile) {
+        try (FileWriter wfile = new FileWriter(pathFile, false)) {
+            wfile.write(wrResult);
+            wfile.flush();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
