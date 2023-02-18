@@ -7,10 +7,11 @@ public class hw_robot {
     private static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int numA = getNumberByUser("Введите числа а (а - натурально, целое число) ");
-        int numB = getNumberByUser("Введите числа b (b - натурально, целое число, b>a) ");
-        String operC = getStrByUser("Введите операцию d (при операции d, число a -> b) ");
-        String operD = getStrByUser("Введите операцию c (d>c) ");
+        // int numA = getNumberByUser("Введите числа а (а - натурально, целое число) ");
+        // int numB = getNumberByUser("Введите числа b (b - натурально, целое число, b>a) ");
+        String[] operC = getStrByUser("Введите операцию d (при операции d, число a -> b) ");
+        // String[] operD = getStrByUser("Введите операцию c (d>c) ");
+        System.out.println(operC[1]);
 
         // System.out.println(number + "-ый элемент треугольного числа = " +
         // Decision(number) + "\n");
@@ -21,9 +22,11 @@ public class hw_robot {
         return input.nextInt();
     }
 
-    public static String getStrByUser(String text) {
+    public static String[] getStrByUser(String text) {
         System.out.print(text);
-        return input.nextLine();
+        String oper = input.next();
+        System.out.println(oper);
+        return oper.split(" ");
     }
 
 }
