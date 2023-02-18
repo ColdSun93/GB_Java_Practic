@@ -43,7 +43,9 @@ public class hw_degree_num {
     public static String calculatDegree(int a, int b) {
         double temp = 1;
         int step = 0;
-        if (b < 0) {
+        if (a == 0 && b==0) {
+            return String.valueOf("не определено");
+        } else if (b < 0) {
             step = b * (-1);
         } else if (b == 0) {
             return String.valueOf(temp);
