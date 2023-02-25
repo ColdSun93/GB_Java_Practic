@@ -23,7 +23,7 @@
     +  Задание: Реализовать алгоритм сортировки слиянием [Cсылка](https://github.com/ColdSun93/GB_Java_Practic/blob/main/Homework_java_3/hw_sl.java "Алгоритм слияния")
 
 4. Папка "\Homework_java_4\\" содержит проект по третьей домашней работе.
-    +  Задание: Реализовать алгоритм пирамидальной сортировки (HeapSort) [Cсылка](https:// "Алгоритм слияния")
+    +  Задание: Реализовать алгоритм пирамидальной сортировки (HeapSort) [Cсылка](https://github.com/ColdSun93/GB_Java_Practic/blob/main/Homework_java_4/hw_pyr_sort.java "HeapSort")
 
 
     
