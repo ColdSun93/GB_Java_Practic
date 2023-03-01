@@ -26,7 +26,7 @@
     +  Задание: Реализовать алгоритм пирамидальной сортировки (HeapSort) [Cсылка](https://github.com/ColdSun93/GB_Java_Practic/blob/main/Homework_java_4/hw_pyr_sort.java "HeapSort")
 
 5. Папка "\Homework_java_5\\" содержит проект по пятой домашней работе.
-    +  Задание: Реализовать механизм печати карты в рамках реализации "Волнового алгоритма" [Cсылка](https:/ "Волновой алгоритм")
+    +  Задание: Реализовать механизм печати карты в рамках реализации "Волнового алгоритма" [Cсылка](https://github.com/ColdSun93/GB_Java_Practic/blob/main/Homework_java_5/hw_wave.java "Волновой алгоритм")
 
     
 
