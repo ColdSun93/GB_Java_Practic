@@ -1,94 +1,207 @@
 package Homework_java_5;
-
-import java.util.Scanner;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class hw_wave {
 
-    private static Scanner input = new Scanner(System.in);
-
     public static void main(String[] args) {
-        var map = getMap();
-        System.out.println(rawData(getMap()));
-        getStrByUser("Введите координаты входа ", map);
-        getStrByUser("Введите координаты выхода ", map);
-        // System.out.println(map[3][4].getClasgetName());
-        // System.out.println(mapColor(getMap()));
-        System.out.println(rawData(map));
+
+        var mg = new MapGenerator();
+        System.out.println(new MapPrinter().rawData(mg.getMap()));
+        var lee = new WaveAlgorithm(mg.getMap());
+        lee.Colorize(new Point2D(3, 3));
+    
+        System.out.println(
+            new MapPrinter().rawData(
+                mg.getMap()) 
+        );
+        lee.getRoad(new Point2D(10, 10));
+        System.out.println(
+            new MapPrinter().rawData(
+                mg.getMap()) 
+        );
+
     }
-
-    static int[][] getMap() {
-        return new int[][] {
-                { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
-                { -1, 00, 00, 00, -1, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, -1 },
-                { -1, 00, 00, 00, 00, 00, 00, -1, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, -1 },
-                { -1, 00, 00, 00, -1, 00, 00, -1, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, -1 },
-                { -1, 00, 00, 00, -1, 00, -1, -1, -1, -1, 00, 00, 00, 00, -1, -1, -1, 00, 00, 00, 00, -1 },
-                { -1, 00, 00, 00, -1, 00, -1, 00, 00, -1, 00, 00, 00, 00, -1, 00, 00, 00, 00, 00, 00, -1 },
-                { -1, -1, -1, 00, -1, 00, -1, 00, 00, -1, 00, 00, 00, 00, -1, 00, 00, 00, 00, 00, 00, -1 },
-                { -1, 00, 00, 00, -1, 00, -1, 00, 00, -1, -1, -1, 00, 00, -1, 00, 00, 00, 00, 00, 00, -1 },
-                { -1, 00, 00, 00, -1, 00, 00, 00, 00, -1, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, -1 },
-                { -1, 00, 00, 00, -1, 00, 00, 00, 00, -1, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, -1 },
-                { -1, 00, 00, 00, -1, -1, -1, -1, -1, -1, 00, 00, 00, 00, -1, -1, -1, 00, 00, 00, 00, -1 },
-                { -1, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, -1 },
-                { -1, 00, 00, 00, -1, -1, -1, -1, -1, -1, -1, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, -1 },
-                { -1, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, -1 },
-                { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }
-        };
-    }
-
-    static String rawData(int[][] map) {
-        StringBuilder sb = new StringBuilder();
-
-        for (int row = 0; row < map.length; row++) {
-            for (int col = 0; col < map[row].length; col++) {
-                sb.append(String.format("%3d", map[row][col]));
-            }
-            sb.append("\n");
-        }
-        return sb.toString();
-    }
-
-    public static void getStrByUser(String text, int[][] map) {
-        int[] coordin = new int[2];
-        System.out.print(text);
-        String coorStr = input.nextLine();
-        String[] oper = coorStr.split(" ");
-        coordin[0] = Integer.parseInt(oper[0]);
-        coordin[1] = Integer.parseInt(oper[1]);
-        if ((map[coordin[0]][coordin[1]] == -1) || (map[coordin[0]][coordin[1]] == 2)) {
-            getStrByUser("Неверные координаты повторите ввод ", map);
-        }
-        else {map[coordin[0]][coordin[1]]= 2;}
-    }
-
-    // static String mapColor(int[][] map) {
-    // StringBuilder sb = new StringBuilder();
-
-    // for (int row = 0; row < map.length; row++) {
-    // for (int col = 0; col < map[row].length; col++) {
-    // switch (map[row][col]) {
-    // case 0:
-    // sb.append("\u2764");
-    // break;
-    // case -1:
-    // sb.append("в–“");
-    // break;
-    // case -2:
-    // sb.append("Рљ");
-    // break;
-    // case -3:
-    // sb.append("E");
-    // break;
-    // default:
-    // break;
-    // }
-    // }
-    // sb.append("\n");
-    // }
-    // for (int i = 0; i < 3; i++) {
-    // sb.append("\n");
-    // }
-    // return sb.toString();
-    // }
-
 }
+
+
+    class Point2D {
+        int x, y;
+
+        public Point2D(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public int getX() {
+            return x;
+        }
+
+        public int getY() {
+            return y;
+        }
+
+        @Override
+        public String toString() {
+            return String.format("x: %d  y: %d", x, y);
+        }
+    }
+
+    class MapGenerator {
+        int[][] map;
+
+        public MapGenerator() {
+            int[][] map = {
+                    { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+                    { -1, 00, 00, 00, -1, 00, 00, 00, 00, 00, 00, 00, 00, 00, -1 },
+                    { -1, 00, 00, 00, 00, 00, 00, -1, 00, 00, 00, 00, 00, 00, -1 },
+                    { -1, 00, 00, 00, -1, 00, 00, -1, 00, 00, 00, 00, 00, 00, -1 },
+                    { -1, 00, 00, 00, -1, 00, -1, -1, -1, -1, 00, 00, 00, 00, -1 },
+                    { -1, 00, 00, 00, -1, 00, -1, 00, 00, -1, 00, 00, 00, 00, -1 },
+                    { -1, -1, -1, 00, -1, 00, -1, 00, 00, -1, 00, 00, 00, 00, -1 },
+                    { -1, 00, 00, 00, -1, 00, -1, 00, 00, -1, -1, -1, 00, 00, -1 },
+                    { -1, 00, 00, 00, -1, 00, 00, 00, 00, -1, 00, 00, 00, 00, -1 },
+                    { -1, 00, 00, 00, -1, 00, 00, 00, 00, -1, 00, 00, 00, 00, -1 },
+                    { -1, 00, 00, 00, -1, -1, -1, -1, -1, -1, 00, 00, 00, 00, -1 },
+                    { -1, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, -1 },
+                    { -1, 00, 00, 00, -1, -1, -1, -1, -1, -1, -1, 00, 00, 00, -1 },
+                    { -1, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, -1 },
+                    { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }
+            };
+
+            this.map = map;
+        }
+
+        public int[][] getMap() {
+            return map;
+        }
+
+        public void setCat(Point2D pos) {
+            map[pos.x][pos.y] = -2;
+        }
+
+        public void setExit(Point2D pos) {
+            map[pos.x][pos.y] = -3;
+        }
+    }
+
+    class MapPrinter {
+
+        public MapPrinter() {
+        }
+
+        public String rawData(int[][] map) {
+            StringBuilder sb = new StringBuilder();
+
+            for (int row = 0; row < map.length; row++) {
+                for (int col = 0; col < map[row].length; col++) {
+                    sb.append(String.format("%5d", map[row][col]));
+                }
+                sb.append("\n");
+            }
+            for (int i = 0; i < 3; i++) {
+                sb.append("\n");
+            }
+
+            return sb.toString();
+        }
+
+        public String mapColor(int[][] map) {
+            StringBuilder sb = new StringBuilder();
+
+            for (int row = 0; row < map.length; row++) {
+                for (int col = 0; col < map[row].length; col++) {
+                    switch (map[row][col]) {
+                        case 0:
+                            sb.append("в–‘");
+                            break;
+                        case -1:
+                            sb.append("в–“");
+                            break;
+                        case -2:
+                            sb.append("Рљ");
+                            break;
+                        case -3:
+                            sb.append("E");
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                sb.append("\n");
+            }
+            for (int i = 0; i < 3; i++) {
+                sb.append("\n");
+            }
+            return sb.toString();
+        }
+    }
+
+    class WaveAlgorithm {
+        int[][] map;
+
+        public WaveAlgorithm(int[][] map) {
+            this.map = map;
+        }
+
+        public void Colorize(Point2D startPoint) {
+            Queue<Point2D> queue = new LinkedList<Point2D>();
+            queue.add(startPoint);
+            map[startPoint.x][startPoint.y] = 1;
+
+            while (queue.size() != 0) {
+                Point2D p = queue.remove();
+
+                if (map[p.x - 1][p.y] == 0) {
+                    queue.add(new Point2D(p.x - 1, p.y));
+                    map[p.x - 1][p.y] = map[p.x][p.y] + 1;
+                }
+                if (map[p.x][p.y - 1] == 0) {
+                    queue.add(new Point2D(p.x, p.y - 1));
+                    map[p.x][p.y - 1] = map[p.x][p.y] + 1;
+                }
+                if (map[p.x + 1][p.y] == 0) {
+                    queue.add(new Point2D(p.x + 1, p.y));
+                    map[p.x + 1][p.y] = map[p.x][p.y] + 1;
+                }
+                if (map[p.x][p.y + 1] == 0) {
+                    queue.add(new Point2D(p.x, p.y + 1));
+                    map[p.x][p.y + 1] = map[p.x][p.y] + 1;
+                }
+            }
+        }
+
+        public void getRoad(Point2D exit) { //маршрут строиться через "-3"
+                        
+            Queue<Point2D> queue = new LinkedList<Point2D>();
+            queue.add(exit);
+            int tempZnach = map[exit.x][exit.y];
+  
+            while (queue.size() != 0) {
+                Point2D p = queue.remove();
+            
+                if (map[p.x - 1][p.y] == tempZnach-1) {
+                    queue.add(new Point2D(p.x - 1, p.y));
+                    map[p.x][p.y] = -3;
+                    tempZnach = map[p.x - 1][p.y];
+                }
+                if (map[p.x][p.y - 1] == tempZnach-1) {
+                    queue.add(new Point2D(p.x, p.y - 1));
+                    map[p.x][p.y] = -3;
+                    tempZnach = map[p.x][p.y - 1];
+                }
+                if (map[p.x + 1][p.y] == tempZnach-1) {
+                    queue.add(new Point2D(p.x + 1, p.y));
+                    map[p.x][p.y] = -3;
+                    tempZnach = map[p.x + 1][p.y];
+                }
+                if (map[p.x][p.y + 1] == tempZnach-1) {
+                    queue.add(new Point2D(p.x, p.y + 1));
+                    map[p.x][p.y] = -3;
+                    tempZnach = map[p.x][p.y + 1];
+                }
+            }
+
+        }
+
+    }
