@@ -29,7 +29,7 @@
     +  Задание: Реализовать механизм печати карты в рамках реализации "Волнового алгоритма" [Cсылка](https://github.com/ColdSun93/GB_Java_Practic/blob/main/Homework_java_5/hw_wave.java "Волновой алгоритм")
 
 6. Папка "\Homework_java_6\\" содержит проект по шестой домашней работе.
-    +  Задание: Реализовать Реализовать волновой алгоритм используя классы [Cсылка](https://github.com/ColdSun93/GB_Java_Practic/blob/main/Homework_java_5/hw_wave.java "Волновой алгоритм")
+    +  Задание: Реализовать Реализовать волновой алгоритм используя классы [Cсылка](https://github.com/ColdSun93/GB_Java_Practic/blob/main/Homework_java_6/hw_wave_2.java "Волновой алгоритм")
 
     
 
