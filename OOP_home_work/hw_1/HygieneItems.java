@@ -8,4 +8,9 @@ public class HygieneItems extends Product {
         this.quantityInPackage = quantityInPackage;
     }
 
+    @Override
+    public String toString() {
+        return "HygieneItems [quantityInPackage=" + quantityInPackage + "]";
+    }
+
 }

@@ -10,4 +10,11 @@ public class ChildrenProducts extends Product {
         this.minAge = minAge;
         this.hippoalergicity = hippoalergicity;
     }
+
+    @Override
+    public String toString() {
+        return "ChildrenProducts [minAge=" + minAge + ", hippoalergicity=" + hippoalergicity + "]";
+    }
+
+    
 }

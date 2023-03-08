@@ -10,4 +10,11 @@ public class Food_Product extends Product {
         this.expirationDate = expirationDate;
     }
 
+    @Override
+    public String toString() {
+        return "Food_Product [expirationDate=" + expirationDate + "]";
+    }
+
+    
+
 }

@@ -14,5 +14,9 @@ public class Product {
         this.unitMeasure = unitMeasure;
     }
 
-
+    @Override
+    public String toString() {
+        return "Product [name=" + name + ", price=" + price + ", count=" + count + ", unitMeasure=" + unitMeasure + "]";
+    }
+    
 }

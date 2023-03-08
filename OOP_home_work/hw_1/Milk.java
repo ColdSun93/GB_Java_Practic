@@ -9,5 +9,12 @@ public class Milk extends Food_Product {
         super(name, price, count, unitMeasure, expirationDate);
         this.fatContent = fatContent;
     }
+
+    @Override
+    public String toString() {
+        return "Milk [fatContent=" + fatContent + "]";
+    }
+
+    
     
 }

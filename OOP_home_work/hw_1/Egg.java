@@ -10,5 +10,11 @@ public class Egg extends Food_Product{
         this.quantityInPackage = quantityInPackage;
     }
 
+    @Override
+    public String toString() {
+        return "Egg [quantityInPackage=" + quantityInPackage + "]";
+    }
+
+
     
 }

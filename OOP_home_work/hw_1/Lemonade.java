@@ -6,5 +6,11 @@ public class Lemonade extends Drinks{
         super(name, price, count, unitMeasure, size);
 
     }
+
+    @Override
+    public String toString() {
+        return "Lemonade []";
+    }
+
     
 }

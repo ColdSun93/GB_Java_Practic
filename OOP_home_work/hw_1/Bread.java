@@ -9,5 +9,11 @@ public class Bread extends Food_Product {
         super(name, price, count, unitMeasure, expirationDate);
         this.typeFlour = typeFlour;
     }
+
+    @Override
+    public String toString() {
+        return "Bread [typeFlour=" + typeFlour + "]";
+    }
+    
     
 }

@@ -8,4 +8,11 @@ public class Drinks extends Product {
         this.size = size;
     }
 
+    @Override
+    public String toString() {
+        return "Drinks [size=" + size + "]";
+    }
+
+    
+
 }
