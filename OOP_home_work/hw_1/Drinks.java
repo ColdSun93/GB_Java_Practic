@@ -10,7 +10,7 @@ public class Drinks extends Product {
 
     @Override
     public String toString() {
-        return "Drinks [size=" + size + "]";
+        return "Напитки [Наименование=" + name + ", Цена=" + price + ", Количество=" + count + ", Ед. измерения=" + unitMeasure + "Объем=" + size + "]";
     }
 
     

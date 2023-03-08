@@ -8,7 +8,7 @@ public class Diapers extends ChildrenProducts {
 
     public Diapers(String name, double price, double count, String unitMeasure, int minAge,
             Boolean hippoalergicity, double size, double minWeight, double maxWeight, String type) {
-        super(name, price, count, unitMeasure, minAge, hippoalergicity);
+        super("Подгузники", price, count, unitMeasure, minAge, hippoalergicity);
         this.size = size;
         this.minWeight = minWeight;
         this.maxWeight = maxWeight;
@@ -17,9 +17,11 @@ public class Diapers extends ChildrenProducts {
 
     @Override
     public String toString() {
-        return "Diapers [size=" + size + ", minWeight=" + minWeight + ", maxWeight=" + maxWeight + ", type=" + type
+        return "Детские продукты [Наименование=" + name + ", Цена=" + price + ", Количество=" + count
+                + ", Ед. измерения=" + unitMeasure + ", Минимальный возраст=" + minAge + ", Гиппоалергенность="
+                + hippoalergicity + ", Размер=" + size + ", Минимальный вес=" + minWeight + ", Максимальный вес=" + maxWeight
+                + ", Тип=" + type
                 + "]";
     }
 
-    
 }

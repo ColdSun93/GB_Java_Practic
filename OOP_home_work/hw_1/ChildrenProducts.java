@@ -13,7 +13,7 @@ public class ChildrenProducts extends Product {
 
     @Override
     public String toString() {
-        return "ChildrenProducts [minAge=" + minAge + ", hippoalergicity=" + hippoalergicity + "]";
+        return "Детские продукты [Наименование=" + name + ", Цена=" + price + ", Количество=" + count + ", Ед. измерения=" + unitMeasure + ", Минимальный возраст=" + minAge + ", Гиппоалергенность=" + hippoalergicity + "]";
     }
 
     

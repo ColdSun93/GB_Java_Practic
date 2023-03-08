@@ -10,7 +10,7 @@ public class HygieneItems extends Product {
 
     @Override
     public String toString() {
-        return "HygieneItems [quantityInPackage=" + quantityInPackage + "]";
+        return "Средства гигиены [Наименование=" + name + ", Цена=" + price + ", Количество=" + count + ", Ед. измерения=" + unitMeasure + ", Количество в упаковке=" + quantityInPackage + "]";
     }
 
 }

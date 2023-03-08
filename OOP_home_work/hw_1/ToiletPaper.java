@@ -10,7 +10,7 @@ public class ToiletPaper extends HygieneItems {
 
     @Override
     public String toString() {
-        return "ToiletPaper [numberLayers=" + numberLayers + "]";
+        return "Средства гигиены [Наименование=" + name + ", Цена=" + price + ", Количество=" + count + ", Ед. измерения=" + unitMeasure + ", Количество в упаковке=" + quantityInPackage + ", Количество слоев=" + numberLayers + "]";
     }
     
 
