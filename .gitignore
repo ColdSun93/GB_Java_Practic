@@ -23,6 +23,6 @@
 hs_err_pid*
 
 # exception files
-program.java
+/program.java
 test.java
 /OOP
