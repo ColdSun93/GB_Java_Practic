@@ -1,16 +1,19 @@
 package OOP_home_work.hw_2;
 
 public abstract class Bird extends Animal{
-    
-    private Double flightAltitude;
+    protected Double flightAltitude;
 
-    public void fly() {
-        System.out.println("Я лечу на %d" + flightAltitude + " метрах");
-        
+    protected Bird(Double growthAnimal, Double weightAnimal, String colorEyesAnimal, Double flightAltitude) {
+        super(growthAnimal, weightAnimal, colorEyesAnimal);
+        this.flightAltitude = flightAltitude;
     }
 
-    private void getInfo(Double flightAltitude) {
-        this.flightAltitude = flightAltitude;
+    
+
+    public abstract void toFly();
+
+    public Double getFlightAltitude() {
+        return this.flightAltitude;
     } 
 
 
