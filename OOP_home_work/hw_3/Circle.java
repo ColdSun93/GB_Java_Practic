@@ -1,32 +1,36 @@
-package OOP.seminar_2;
+package OOP_home_work.hw_3;
 import java.lang.Math;
 
-public class Circle implements Interface{
-    protected int r;
 
-    public Circle(int r) {
-        this.r = r;
+public class Circle implements Figure, Circumference {
+    private Double rad;
+
+    public Circle(Double rad) {
+        this.rad = rad;
     }
 
-
-    @Override
-    public Double Area_Calculating() {
-        Double S = Math.PI* Math.pow(r, 2);
-        return S;
-
+    public Circle() {
+        this(5.0);
     }
-
-
-    @Override
-    public Double Perimetr_Calculating() {
-        Double P = 2*Math.PI* r;
-        return P;
-    }
-
+    
 
     @Override
     public String toString() {
-        return "Circle ";
+        return String.format("Круг: %s", this.rad + " Площадь: " + area() + " Длина окружности: " + length());
+       
+        // String.format("Круг");
+    }
+
+
+    @Override
+    public Double length() {
+        return 2*Math.PI*rad;
+    }
+
+
+    @Override
+    public double area() {
+        return Math.PI*rad*rad;
     }
 }
 

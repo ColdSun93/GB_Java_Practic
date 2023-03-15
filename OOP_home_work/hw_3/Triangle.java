@@ -1,42 +1,27 @@
-package OOP.seminar_2;
+package OOP_home_work.hw_3;
 
 import java.lang.Math;
 
-public class Triangle implements Interface {
-
-    protected Double a;
-    protected Double b;
-    protected Double c;
+public class Triangle extends Polygon {
 
     public Triangle(Double a, Double b, Double c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
+        super(new Double[] { a, b, c });
     }
 
-    @Override
-    public Double Perimetr_Calculating() {
-
-        Double P = (a + b + c);
-        return P;
-
-    }
-
-    @Override
-    public Double Area_Calculating() {
-        Double p = ((a + b + c) / 2);
-        Double S = Math.sqrt(p * (p - a) * (p - b) * (p - c));
-        return S;
-
-    }
-
-    public void printTriangle() {
-
+    public Triangle() {
+        this(3.0, 3.0, 2.0);
     }
 
     @Override
     public String toString() {
-        return "Треугольник ";
+        return String.format("Треугольник: %s", super.toString() + "Площадь: " + area() + " Периметр: " + perimeter());
+        // String.format("Треугольник");
+    }
+
+    @Override
+    public double area() {
+        double p = perimeter() / 2.0;
+        return Math.sqrt(p * (p - sides[0]) * (p - sides[1]) * (p - sides[2]));
     }
 
 }

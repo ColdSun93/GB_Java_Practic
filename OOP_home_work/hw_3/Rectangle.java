@@ -1,44 +1,29 @@
-package OOP.seminar_2;
+package OOP_home_work.hw_3;
 
-public class Rectangle implements Interface{
-
-    protected Double a;
-    protected Double b;
+public class Rectangle extends Polygon{
 
     public Rectangle(Double a, Double b) {
-        this.a = a;
-        this.b = b;
+        super(new Double[]{a,b,a,b});
     }
 
-    
-
-    
-    @Override
-    public Double Perimetr_Calculating() {
-
-        Double P = 2 * (a + b);
-        return P;
-
+    public Rectangle() {
+        this(2.0, 4.0);
     }
 
-    @Override
-    public Double Area_Calculating() {
-        Double S = a * b;
-        return S;
-
-    }
-    
-    public class SquareF extends Rectangle{
-        public SquareF(Double a){
-            super(a, a);
-        }
-        public SquareF(){
-            this(2.0);
-        }
-    }
 
     @Override
     public String toString() {
-        return "Прямоугольник";
+        return String.format("Прямоугольник: %s", super.toString() + " Площадь: " + area() + " Периметр: " + perimeter());
+        
+        // String.format("Прямоугольник");
+        
+    }
+
+
+
+
+    @Override
+    public double area() {
+        return sides[0]*sides[1];
     }
 }
