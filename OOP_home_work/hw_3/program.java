@@ -10,22 +10,29 @@ public class program {
         menuUser(shapes, input);
         input.close();
 
-        // Figure[] figures = { new Triangle(), new Rectangle(), new Circle(), new Square() };
-        // for (Figure figure : figures)
-        //     printFigureInfo(figure);
+       
     }
 
-    private static void printFigureInfo(Figure figure) {
-        System.out.println(figure);
-        System.out.println(String.format("Area: %f", figure.area()));
-        if (figure instanceof Perimeterble) {
-            Perimeterble perimeterable = (Perimeterble) figure;
-            System.out.println(String.format("Периметр: %f", perimeterable.perimeter()));
+    private static void addTriangle(Shapes shapes, Scanner input) {
+        Double a;
+        Double b;
+        Double c;
+
+        try {
+            System.out.print("Cторона a: ");
+            a = input.nextDouble();
+            System.out.print("Cторона b: ");
+            b = input.nextDouble();
+            System.out.print("Cторона c: ");
+            c = input.nextDouble();
+            
+            shapes.addTriangleShapes(a, b, c);
+
+        } catch (Exception e) {
+            System.out.print("Неверный ввод: ");
+            addTriangle(shapes,input);
         }
-        if (figure instanceof Circumference) {
-            Circumference circumference = (Circumference) figure;
-            System.out.println(String.format("Length: %f", circumference.length()));
-        }
+
     }
 
     private static void menuUser(Shapes shapes, Scanner input) {
@@ -35,8 +42,16 @@ public class program {
         System.out.println("Изменить фигуру - 4");
         System.out.println("Cортировка по площади, вывод информации о всех фигурах - 5");
         System.out.println("Выход - 6");
+        int key = 6;
 
-        int key = input.nextInt();
+        try {
+            key = input.nextInt();
+
+        } catch (Exception e) {
+            System.out.print("Неверный ввод: ");
+            menuUser(shapes, input);
+        }
+
         switch (key) {
             case 1:
                 shapes.showAll();
@@ -48,15 +63,28 @@ public class program {
                 deleteFigure(shapes, input);
                 menuUser(shapes, input);
             case 4:
-                // viewInfoAllAnimals(shapes, input);
+                setFigure(shapes, input);
                 menuUser(shapes, input);
             case 5:
-                // makesSoundsAnimal(shapes, input);
                 menuUser(shapes, input);
             case 6:
                 break;
         }
 
+    }
+
+    private static void setFigure(Shapes shapes, Scanner input) {
+        shapes.showAll();
+        System.out.printf("%d) Назад\n", Shapes.listShapes.size());
+        System.out.print("Введите цифру изменяемой фигуры: ");
+        int key = input.nextInt();
+        if (key < Shapes.listShapes.size()) {
+            addFigure(shapes, input);
+            shapes.setShapes(key);
+            System.out.println("Фигура изменена");
+            menuUser(shapes, input);
+        } else
+            menuUser(shapes, input);
     }
 
     private static void deleteFigure(Shapes shapes, Scanner input) {
@@ -65,7 +93,7 @@ public class program {
         System.out.print("Введите цифру фигуры: ");
         int key = input.nextInt();
         if (key < Shapes.listShapes.size()) {
-            shapes.deleteFigure(key);
+            shapes.deleteShapes(key);
             System.out.println("Фигура удалена");
             menuUser(shapes, input);
         } else
@@ -83,20 +111,71 @@ public class program {
         int choice = input.nextInt();
         switch (choice) {
             case 1:
-                shapes.addTriangle(input);
-                ;
-                menuUser(shapes, input);
+                addTriangle(shapes, input);
+                addFigure(shapes, input);
             case 2:
-                shapes.addRectangle(input);
-                menuUser(shapes, input);
+                addRectangle(shapes, input);
+                addFigure(shapes, input);
             case 3:
-                shapes.addCircle(input);
-                menuUser(shapes, input);
+                addCircle(shapes, input);
+                addFigure(shapes, input);
             case 4:
-                shapes.addSquare(input);
-                menuUser(shapes, input);
+                addSquare(shapes, input);
+                addFigure(shapes, input);
             case 5:
                 menuUser(shapes, input);
         }
+        addFigure(shapes, input);
+    }
+
+    private static void addSquare(Shapes shapes, Scanner input) {
+        Double a;
+
+        try {
+            System.out.print("Cторона a: ");
+            a = input.nextDouble();
+
+            shapes.addSquareShapes(a);
+
+        } catch (Exception e) {
+            System.out.print("Неверный ввод: ");
+            addSquare(shapes,input);
+        }
+
+    }
+
+    private static void addCircle(Shapes shapes, Scanner input) {
+        Double r;
+
+        try {
+            System.out.print("Cторона a: ");
+            r = input.nextDouble();
+
+            shapes.addCircleShapes(r);
+
+        } catch (Exception e) {
+            System.out.print("Неверный ввод: ");
+            addCircle(shapes,input);
+        }
+
+    }
+
+    private static void addRectangle(Shapes shapes, Scanner input) {
+        Double a;
+        Double b;
+
+        try {
+            System.out.print("Cторона a: ");
+            a = input.nextDouble();
+            System.out.print("Cторона b: ");
+            b = input.nextDouble();
+           
+            shapes.addRectangleShapes(a, b);
+
+        } catch (Exception e) {
+            System.out.print("Неверный ввод: ");
+            addRectangle(shapes,input);
+        }
+
     }
 }
