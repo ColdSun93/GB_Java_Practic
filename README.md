@@ -43,7 +43,7 @@
 2. Папка "GB_Java_Practic/OOP_home_work/hw_2/" содержит проект по второй домашней работе. [Cсылка](https://github.com/ColdSun93/GB_Java_Practic/tree/main/OOP_home_work/hw_2 "2 ДЗ")
     + На языке Java реализовать интерфейс "Животное" со следующими полями:
 
-3. Папка "GB_Java_Practic/OOP_home_work/hw_3/" содержит проект по третьей домашней работе. [Cсылка](https://github.com/ColdSun93/GB_Java_Practic/tree/main/OOP_home_wor "3 ДЗ")
+3. Папка "GB_Java_Practic/OOP_home_work/hw_3/" содержит проект по третьей домашней работе. [Cсылка](https://github.com/ColdSun93/GB_Java_Practic/tree/main/OOP_home_work/hw_3 "3 ДЗ")
     -   Написать программу на языках Java, в которой идёт со следующими геометрическими фигурами:
         +   1. Треугольник
         +   2. Квадрат
