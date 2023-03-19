@@ -27,9 +27,10 @@ public class program {
             c = input.nextDouble();
             
             shapes.addTriangleShapes(a, b, c);
+            menuUser(shapes, input);
 
         } catch (Exception e) {
-            System.out.print("Неверный ввод: ");
+            e.printStackTrace();
             addTriangle(shapes,input);
         }
 
