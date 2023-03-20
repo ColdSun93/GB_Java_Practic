@@ -4,11 +4,16 @@ public class ArrayDinamic<T> {
 
     private T[] arrData;
     private int arrLenght;
-    private static final int arrStartLenght = -1;
+    private static final int arrStartLenght = 1;
 
     public ArrayDinamic() {
         this.arrLenght = 0;
         this.arrData = (T[]) new Object[arrStartLenght];
+    }
+
+    public ArrayDinamic(T[] arrData) {
+        this.arrLenght = arrData.length;
+        this.arrData =arrData;
     }
 
     public int getArrLenght() {
@@ -21,7 +26,19 @@ public class ArrayDinamic<T> {
     }
 
     public void addElement(T element) {
+        if (this.arrLenght==this.arrData.length) {
+            addLenght();
+        }
         this.arrData[this.arrLenght++] = element;
+    }
+
+    public void addLenght() {
+        int newLenght = this.getArrLenght()+1;
+        T[] newArrData = (T[]) new Object[newLenght];
+        for (int i = 0; i < this.getArrLenght(); i++) {
+            newArrData[i] = this.arrData[i];
+        }
+        this.arrData=newArrData;
     }
 
     public void printArr() {
