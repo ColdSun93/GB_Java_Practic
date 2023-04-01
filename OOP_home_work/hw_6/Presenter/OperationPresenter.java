@@ -9,16 +9,14 @@ import OOP_home_work.hw_6.Model.ComplexNum;
 import OOP_home_work.hw_6.Model.RationalNum;
 import OOP_home_work.hw_6.Model.Interface.Operations;
 import OOP_home_work.hw_6.View.View;
-// import OOP_home_work.hw_6.View.ViewMenu;
+
 import OOP_home_work.hw_6.View.ViewMenuUser;
 
 public class OperationPresenter {
 
     private View mView;
     private Operations operations;
-    // private RationalNum rationalNum;
-    // private ComplexNum complexNum;
-    // private BinaryNum binaryNum;
+
 
     public OperationPresenter(View mView) {
         this.mView = mView;
@@ -31,7 +29,6 @@ public class OperationPresenter {
     }
 
     public String operationNum(String firstNumber, String secondNumber, int key, char operation) {
-        // String result = "";
         switch (key) {
             case 1:
                 operations = new RationalNum(firstNumber, secondNumber);

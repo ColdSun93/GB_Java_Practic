@@ -1,6 +1,5 @@
 package OOP_home_work.hw_6.View;
 
-import java.io.IOException;
 import java.util.Scanner;
 import OOP_home_work.hw_6.LoggerOperation;
 import OOP_home_work.hw_6.Presenter.OperationPresenter;
